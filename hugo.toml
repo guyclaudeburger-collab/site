@@ -1,0 +1,119 @@
+languageCode = 'en-us'
+disableKinds = ['taxonomy','rss']
+title = "Knocking on heaven's door"
+BaseURL = "https://projectneogenesis-8ccd1.web.app"
+enableRobotsTXT = true
+copyright = 'Everything is mine'
+disableHugoGeneratorInject = true
+publishDir = 'htdocs'
+
+[outputs]
+page = ['html','bib','emoji']
+
+[outputformats.html]
+weight = 1 # This is really important, html must be rendered first!
+isPlainText = true
+
+[outputformats.bib]
+baseName = 'bib'
+isPlainText  =true
+mediaType = 'text/plain'
+weight = 2
+
+[outputformats.emoji]
+baseName = 'emoji'
+isPlainText  =true
+mediaType = 'text/plain'
+weight = 2
+
+[permalinks]
+contentDir = 'content'
+docs = '/:slugorcontentbasename/'
+
+[params]
+author="Dr Mengele"
+with_expurged=true
+mail="natural.nationalism@gmail.com"
+brand = "/Images/banners/trees.svg"
+description = 'The purpose of this site is to promote a way of life and a vision of the world based on science as well as the spiritual rehabilitating the instincts we evolved with in terms of food, health and love life.'
+keywords = "politics, love life, extrasensory, national naturalism, instincts, sexuality, happiness, children, pedophilia, incest, nordic race, human condition, spirituality, metapsychics, paranormal, rawfood, regeneration, eugenics"
+twitter = 'NaturalNat1488'
+
+[imaging]
+anchor = 'Smart'
+bgColor = '#ffffff'
+hint = 'picture'
+quality = 100
+resampleFilter = 'Lanczos'
+
+[markup]
+[markup.goldmark.renderer]
+unsafe = true
+[markup.goldmark.parser]
+autoDefinitionTermID = true
+hardWraps = true
+xhtml = true
+wrapStandAloneImageWithinParagraph = false
+[markup.goldmark.extensions.extras]
+[markup.goldmark.extensions.extras.superscript]
+enable = true
+[markup.goldmark.extensions.extras.subscript]
+enable = true
+[markup.goldmark.extensions.extras.delete]
+enable = true
+[markup.goldmark.extensions.extras.insert]
+enable = true
+[markup.goldmark.extensions.extras.mark]
+enable = true
+[markup.goldmark.parser.attribute]
+block = true
+title = true
+[markup.highlight]
+codeFences = true
+[markup.tableOfContents]
+startLevel = 1
+endLevel = 2
+ordered = true
+
+[security.exec]
+allow = ['^go$', '^npx$', '^postcss$', 'micro']
+
+[[module.mounts]]
+source = 'assets'
+target = 'assets'
+
+[[module.mounts]]
+source = "content"
+target = "content"
+
+[[module.mounts]]
+source = "content/intro.md"
+target = "content/_index.md"
+
+[[cascade]]
+[cascade.build]
+list = 'never'
+render = 'never'
+[cascade._target]
+path = '/intro'
+
+[[cascade]]
+[cascade.build]
+list = 'local'
+render = 'never'
+[cascade._target]
+kind = 'section'
+
+[[module.mounts]]
+source = 'static'
+target = 'assets'
+[[module.mounts]]
+source = '../../../Images'
+target = 'assets/Images'
+
+[[cascade]]
+bookHidden = false
+bookSearchExclude = false
+
+[frontmatter]
+lastmod = [':fileModTime']
